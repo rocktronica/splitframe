@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>SplitFrame</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,900' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+
+        <header>
+            <h1><a href="index.html">Split<wbr>Frame</a></h1>
+            <p>A "side by side, local vs live" bookmarklet</p>
+            <nav>
+                <a href="#setup">Setup</a>
+                <a href="#usage">Usage</a>
+                <a href="#caveats">Caveats</a>
+            </nav>
+        </header>
+
+        <div class="content">
+
+            <section id="setup">
+                <h2>Setup</h2>
+                <p>Drag this guy into your browser's bookmarks toolbar:</p>
+                <p>
+                    <a href="#" class="bookmarklet" data-bookmarklet>SplitFrame</a>
+                    <small>(Or, hey!, try it on this page!)</small>
+                </p>
+            </section>
+
+            <section id="usage">
+                <h2>Usage</h2>
+                <p>When clicked, on your site, it will ask for two strings:</p>
+                <table>
+                    <tr>
+                        <th>Needle</th>
+                        <td>Part of the site's development URL that is specific to it and not its live counterpart</td>
+                    </tr>
+                    <tr>
+                        <th>Replacement</th>
+                        <td>What replaces the aforementioned needle on the live site</td>
+                    </tr>
+                </table>
+                <p><small><strong>Example:</strong> A site that is locally tested on <code>http://<i>dev.</i>fubar.com/</code> but publicly exists as <code>http://<i>www.</i>fubar.com/</code> would have its needle as <code>dev.</code> and its replacement as <code>www.</code>.</small></p>
+                <p>The needle and its replacement are saved in your browser and will pre-fill their prompts on SplitFrame's next run.</p>
+            </section>
+
+            <section id="caveats">
+                <h2>Caveats</h2>
+                <ul>
+                    <li>The site being used must not disallow being framed.</li>
+                    <li>Due to the <a href="https://developer.mozilla.org/en-US/docs/Same_origin_policy_for_JavaScript">same origin policy</a>, navigation pushes will usually only work one way. That is, you can drive the live site from the local site but not vice versa.</li>
+                    <li>Relatedly, in most cases, the only controllable variable in the secondary frame will be its URL. Which is why, unfortunately, scroll events or other arbitrary calls cannot be mirrored.</li>
+                    <li>JS isn't polyfilled; requires a decent browser.</li>
+                </ul>
+            </section>
+
+        </div>
+
+        <footer>
+            <p>Yet another project of dubious value from <a href="http://mynameistommy.com/">Tommy</a> / <a href="https://twitter.com/#!/rocktronica">@rocktronica</a>. <a href="http://sam.zoy.org/wtfpl/">WTFPL</a>.</p>
+        </footer>
+
+        <a href="https://github.com/rocktronica/splitframe"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+        <script defer src="javascript.js"></script>
+
+        <!--<script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>-->
+    </body>
+</html>

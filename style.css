@@ -1,0 +1,169 @@
+* { margin: 0; padding: 0; font-size: inherit; line-height: inherit; border: none; box-sizing: border-box; }
+
+html { padding: 40px 20px; }
+
+/* --- layout --- */
+
+body {
+	max-width: 980px;
+}
+
+header, footer {
+	float: left;
+	width: 34%;
+}
+
+.content {
+	padding-left: 30px;
+	float: right;
+	width: 66%;
+}
+
+/* --- general --- */
+
+body {
+	margin: 0 auto;
+	font: 20px/24px 'Source Sans Pro', sans-serif;
+	background: #fcfcfc;
+	color: #333;
+}
+
+body.live {
+	background: #333;
+	color: #eee;
+}
+
+body.live a, body.live code, body.live h1, body.live header, body.live footer {
+	color: inherit;
+	background: inherit;
+	border-color: inherit;
+}
+
+small {
+	font-size: 14px;
+}
+
+code {
+	background: #eee;
+	padding: 0 6px;
+	display: inline-block;
+	font-size: 12px;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+	border-bottom: 1px dotted #333;
+}
+
+a:hover { text-decoration: none; }
+
+th, strong {
+	font-weight: 600;
+}
+
+h1,h2,h3,p,table,nav {
+	margin: 0 0 22px;
+}
+
+header, aside, section, footer {
+	margin: 0 0 30px;
+}
+
+ol, ul {
+	padding-left: 38px;
+}
+
+h2 {
+	font-size: 28px;
+	line-height: 28px;
+	font-weight: 600;
+}
+
+table * {
+	vertical-align: top;
+	text-align: left;
+}
+
+table tr > * {
+	padding: 0 24px 6px 0;
+}
+
+/* --- header / footer --- */
+
+header, footer {
+	text-align: right;
+	color: #777;
+}
+
+header {
+	font-size: 18px;
+}
+
+h1 {
+	font-size: 62px;
+	line-height: 48px;
+	font-weight: 900;
+	margin-bottom: 11px;
+}
+
+h1 a {
+	border: none;
+}
+
+h1 span {
+	font-weight: 600;
+	opacity: .5;
+}
+
+header p {
+	font-style: italic;
+}
+
+header nav a {
+	margin: 0 1em 0 0;
+}
+
+footer {
+	font-size: 14px;
+}
+
+/* --- special sauce --- */
+
+.bookmarklet, body.live .bookmarklet {
+	background: rgba(0,0,0,.8);
+	color: #fff;
+	padding: 5px 10px;
+	border: none;
+}
+
+.bookmarklet + * {
+	margin-left: 22px;
+	color: #666;
+	font-style: italic;
+}
+
+section:target {
+	background: rgba(0,0,0,.1);
+	box-shadow: 0 0 0 20px rgba(0,0,0,.1);
+}
+
+body.live section:target {
+	background: rgba(255,255,255,.1);
+	box-shadow: 0 0 0 20px rgba(255,255,255,.1);
+}
+
+
+/* --- responsive sauce --- */
+
+@media screen and (max-width: 680px) {
+	html {
+		padding: 40px;
+	}
+	header, footer, .content {
+		text-align: inherit;
+		float: none;
+		width: auto;
+		padding-left: inherit;
+	}
+}
