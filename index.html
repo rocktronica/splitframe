@@ -53,16 +53,17 @@
                 <h2>Caveats</h2>
                 <ul>
                     <li>The site being used must not disallow being framed.</li>
-                    <li>Due to the <a href="https://developer.mozilla.org/en-US/docs/Same_origin_policy_for_JavaScript">same origin policy</a>, navigation pushes will usually only work one way. That is, you can drive the live site from the local site but not vice versa.</li>
-                    <li>Relatedly, in most cases, the only controllable variable in the secondary frame will be its URL. Which is why, unfortunately, scroll events or other arbitrary calls cannot be mirrored.</li>
-                    <li>JS isn't polyfilled; requires a decent browser.</li>
+                    <li>Due to the <a href="https://developer.mozilla.org/en-US/docs/Same_origin_policy_for_JavaScript">same origin policy</a>, navigation pushes will only work one way <span data-tooltip="Oh, and SplitFrame would need to check for that. Which it currently doesn't.">unless explicitly allowed</span>. That is, you can drive the right side from the left side but not vice versa.</li>
+                    <li>Requires a semi-recent browser; nothing is checked or polyfilled. Legacy patches welcome&mdash; I won't write them until I need them! ;)</li>
                 </ul>
             </section>
 
         </div>
 
         <footer>
-            <p>Yet another project of dubious utility from <span class="nowrap"><a href="http://mynameistommy.com/">Tommy</a> / <a href="https://twitter.com/#!/rocktronica">@rocktronica</a></span>. <a href="http://sam.zoy.org/wtfpl/">WTFPL</a>.</p>
+            <p>Yet another project of dubious utility from <span class="nowrap"><a href="http://mynameistommy.com/">Tommy</a> / <a href="https://twitter.com/#!/rocktronica">@rocktronica</a></span>.</p>
+            <p><a href="http://sam.zoy.org/wtfpl/">WTFPL</a>. Feedback &amp; patches welcome.</p>
+            <p data-last-updated style="display:none;"></p>
         </footer>
 
         <a href="https://github.com/rocktronica/splitframe"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>

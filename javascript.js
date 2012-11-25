@@ -52,4 +52,25 @@
 
 	}
 
+	(function() {
+		function updateLastUpdated(date) {
+			var lastUpdated = document.querySelector("[data-last-updated]");
+			lastUpdated.style.display = "block";
+			lastUpdated.innerHTML = "Last updated <time>" + date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear() + "</time>.";
+		}
+
+		var req = new XMLHttpRequest();
+		req.open("GET", "https://api.github.com/repos/rocktronica/splitframe", true);
+		req.onreadystatechange = function () {
+			if (req.readyState != 4 || (req.status != 200 && req.status != 304)) {
+				return;
+			};
+			var data = JSON.parse(this.response);
+			if (data.updated_at) {
+				updateLastUpdated(new Date(data.updated_at));
+			}
+		};
+		req.send();
+	}());
+
 }());
