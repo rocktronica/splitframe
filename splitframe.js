@@ -12,7 +12,7 @@
 
     var url = location.href.replace(/#.*/, ""); // trim hash
 
-    // parent
+    // parent frameset
     var frameset = doc.createElement("frameset");
     frameset.cols = "*,*";
 
@@ -34,6 +34,7 @@
         return url.replace(/(^.*\/{2}|\/*$)/g, "");
     }
 
+    // make all external links escape frameset
     function fixLinks(context) {
         var links = context.querySelectorAll("a"), count = links.length;
         for (var i = 0; i < count; i++) {
@@ -46,21 +47,22 @@
 
     // changing function, fired for both iframe loads and hash changes
     var onChange = function() {
+
         // since this may be either the iframe or window
         var context = this.contentDocument || this.document;
         var localUrl = context.location.href || context.location.href;
 
         liveFrame.src = localUrl.replace(needle, replacement);
 
+        // retitle and change history
         document.title = context.title;
         history.pushState(null, null,
             location.protocol + "//" + stripUrl(localUrl) + "/#!/" + stripUrl(liveFrame.src)
         );
 
-        // make all external links kill frameset
         fixLinks(context);
 
-        // re-bind hash change
+        // re-bind hash event since window has changed
         localFrame.contentWindow.addEventListener("hashchange", onChange);
     };
 

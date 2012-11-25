@@ -153,6 +153,9 @@ body.live section:target {
 	box-shadow: 0 0 0 20px rgba(255,255,255,.1);
 }
 
+.nowrap {
+	white-space: nowrap;
+}
 
 /* --- responsive sauce --- */
 
