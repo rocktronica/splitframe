@@ -15,7 +15,7 @@
 		cleanUrl = cleanUrl.substr(0, cleanUrl.lastIndexOf("/"));
 		window.history.pushState(null, null, cleanUrl);
 
-		var path = "//" + location.host + location.pathname;
+		var path = "http://" + location.host + location.pathname;
 		path = path.replace(/\/*$/, "");
 
 		bookmarklet.href = 'javascript:(function(){var script = document.createElement("script");script.src =  "' + path + '/splitframe.js?" + (+new Date());document.body.appendChild(script);}());';
