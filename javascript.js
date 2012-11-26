@@ -2,6 +2,10 @@
 
 	var bookmarklet = document.querySelector("[data-bookmarklet]");
 
+	if (!!document.location.search.match("nostats")) {
+		document.title += " [nostats]";
+	}
+
 	if (window.top === window.self) {
 
 		// override prompts if run on this page
@@ -36,11 +40,13 @@
 
 	} else {
 
+		// don't allow inception framesets
 		bookmarklet.addEventListener("click", function(e) {
 			e.preventDefault();
 			console.warn("Wise guy.");
 		});
 
+		// rename title
 		var match = location.search.match(/(local|live)/)
 		if (match && match.length) {
 			var param = match[1];
@@ -52,6 +58,7 @@
 
 	}
 
+	// get project's last update from github
 	(function() {
 		function updateLastUpdated(date) {
 			var lastUpdated = document.querySelector("[data-last-updated]");
