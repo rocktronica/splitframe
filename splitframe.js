@@ -10,7 +10,8 @@
     // cancel if unused
     if (!needle || !replacement) { return false; }
 
-    var url = location.href.replace(/#.*/, ""); // trim hash
+    var initUrl = location.href.replace(/#.*/, ""); // trim hash
+    initUrl += (initUrl.match(/\?/) ? "&" : "?") + +new Date(); // force reload in FF
 
     // parent frameset
     var frameset = doc.createElement("frameset");
@@ -19,7 +20,7 @@
     // left frame
     var localFrame = doc.createElement("frame");
     frameset.appendChild(localFrame);
-    localFrame.src = url;
+    localFrame.src = initUrl;
 
     // right frame
     var liveFrame = doc.createElement("frame");
